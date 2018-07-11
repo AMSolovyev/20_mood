@@ -2,24 +2,73 @@
 <html>
 <head>
   <title>Настроение</title>
+  <meta charset="utf-8">
+  <style type="text/css">
+    .quote-div {
+      margin: auto;
+      width: 50%;
+      height: 40%;
+      background: #BC8F8F;
+      opacity: 0.7;
+      box-sizing: border-box;
+      padding: 10%;
+      text-align: center;
+      -moz-border-radius: 40%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 130%;
+    }
+
+    body {
+      background-image: url("img/cat.jpg");
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+
+  </style>
   <script id="quotes_json" type="application/json">
     [
       {
-        "phrase": "Кукурузные хлопья - теперь без асбеста!",
-        "signature": "©Неизвестный маркетолог"
+        "phrase": "Есть люди, в которых живёт Бог; есть люди, в которых живёт Дьявол; а есть люди, в которых живут только глисты...Фаина Раневская"
       },
       {
-        "phrase": "Собираюсь жить вечно, пока всё идёт нормально"
+        "phrase": "Да-а, мечтали увидеть финал Россия-Бразилия, но не судьба. - Подвели нас бразильцы, подвели."
       },
       {
-        "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c/Мы открылись\u003e'?"
+        "phrase": "Воспитанный мужчина не только всегда проводит женщину до её дома,но и никогда не оставит её спать одну."
       },
       {
-        "phrase": "Если ты будешь усердно работать по 8 часов в день, то обязательно станешь боссом и начнешь работать по 12"
-      }
+        "phrase": "Руководитель пенсионного фонда выдохнул, выпил залпом стакан водки и признался, что все средства пенсионного фонда он поставил на Испанию."
+      },
+      {
+        "phrase": "Сборная России по футболу вышла в четвертьфинал.Сборная Бразилии по хоккею напряглась. "
+      },
+      {
+        "phrase": "Лозунг пенсионной реформы в России "Тряхнем стариной"."
+      },
     ]
   </script>
 </head>
 <body>
+
+<div class="quote-div">
+  <p class="js-phrase"></p>
+</div>
+
+
+<script>
+   window.onload = function() {
+      var quotes = JSON.parse(document.getElementById("quotes_json").innerText);
+      var randomNumber = Math.floor(Math.random() * quotes.length);
+      document.getElementsByClassName("js-phrase")[0].innerText = quotes[randomNumber].phrase;
+    };
+
+</script>
+
+
 </body>
 </html>

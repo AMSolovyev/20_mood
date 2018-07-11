@@ -1,6 +1,6 @@
 # Site for the Mood
 
-[TODO. There will be project description]
+The site raises mood [here](https://AMSolovyev.github.io/20_mood)
 
 # Project Goals
 
