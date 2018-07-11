@@ -20,6 +20,10 @@
       font-size: 130%;
     }
 
+    .js-signature {
+      font-style: italic;
+    }
+
     body {
       background-image: url("img/cat.jpg");
       -webkit-background-size: cover;
@@ -27,13 +31,12 @@
       -o-background-size: cover;
       background-size: cover;
     }
-
-
   </style>
   <script id="quotes_json" type="application/json">
     [
       {
-        "phrase": "Есть люди, в которых живёт Бог; есть люди, в которых живёт Дьявол; а есть люди, в которых живут только глисты...Фаина Раневская"
+        "phrase": "Есть люди, в которых живёт Бог; есть люди, в которых живёт Дьявол; а есть люди, в которых живут только глисты."
+        "signature": "Фаина Раневская"
       },
       {
         "phrase": "Да-а, мечтали увидеть финал Россия-Бразилия, но не судьба. - Подвели нас бразильцы, подвели."
@@ -49,7 +52,7 @@
       },
       {
         "phrase": "Лозунг пенсионной реформы в России "Тряхнем стариной"."
-      },
+      }
     ]
   </script>
 </head>
@@ -57,15 +60,19 @@
 
 <div class="quote-div">
   <p class="js-phrase"></p>
+  <p class="js-signature"></p>
 </div>
 
 
 <script>
    window.onload = function() {
-      var quotes = JSON.parse(document.getElementById("quotes_json").innerText);
-      var randomNumber = Math.floor(Math.random() * quotes.length);
-      document.getElementsByClassName("js-phrase")[0].innerText = quotes[randomNumber].phrase;
-    };
+     var quotes = JSON.parse(document.getElementById("quotes_json").innerText);
+     var randomNumber = Math.floor(Math.random() * quotes.length);
+     document.getElementsByClassName("js-phrase")[0].innerText = quotes[randomNumber].phrase;
+     if (typeof quotes[randomNumber].signature !== "undefined") {
+       document.getElementsByClassName("js-signature")[0].innerText = quotes[randomNumber].signature;
+    }
+  };
 
 </script>
 
